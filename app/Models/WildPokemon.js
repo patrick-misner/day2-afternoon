@@ -2,7 +2,7 @@
 
 export class WildPokemon {
   constructor(wildData){
-    this.id = wildData.name
+    this.id = wildData.index || wildData.id
     this.abilities = wildData.abilities
     this.base_experience = wildData.base_experience
     this.height = wildData.height
@@ -17,7 +17,9 @@ export class WildPokemon {
 
   static ListTemplate(wildPokemon){
     return `
-    <b class="selectable" onclick="app.dndSpellsController.getSpellDetails('${wildPokemon.id}')"> ${wildPokemon.name} </b>
+    <div class="col-12 text-center p-1">
+    <b class="selectable" onclick="app.dndSpellsController.getPokemonDetails('${wildPokemon.id}')"> ${wildPokemon.name} </b>
+    </div>
     `
   }
 }
