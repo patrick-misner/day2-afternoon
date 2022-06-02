@@ -17,6 +17,7 @@ function _drawWildPokemons(){
 function _drawDetails(){
 let wildpokemon = ProxyState.activePokemon
 document.getElementById('details').innerHTML = wildpokemon.DetailsTemplate
+console.log(wildpokemon);
 }
 
 export class WildPokemonsController {
@@ -36,6 +37,8 @@ export class WildPokemonsController {
       Pop.toast(error.message, 'error')
     }
   }
+
+ 
 
   async getPokemonDetails(name){
     try {
