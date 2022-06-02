@@ -4,7 +4,7 @@ import { WildPokemonsController } from "./Controllers/WildPokemonsController.js"
 class App {
   // valuesController = new ValuesController();
 
-    wildpokemonsController = new WildPokemonsController();
+    wildPokemonsController = new WildPokemonsController();
 }
 
 window["app"] = new App();

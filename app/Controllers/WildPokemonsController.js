@@ -10,14 +10,19 @@ function _drawWildPokemons(){
   console.log('wildpokemons', ProxyState.wildpokemons);
   let template = ''
   wildpokemons.forEach( p => template += WildPokemon.ListTemplate(p))
-  console.log('draw pokemons template', template)
+  // console.log('draw pokemons template', template)
   document.getElementById('wild-pokemons').innerHTML = template
 }
 
+function _drawDetails(){
+let wildpokemon = ProxyState.activePokemon
+document.getElementById('details').innerHTML = wildpokemon.DetailsTemplate
+}
 
 export class WildPokemonsController {
   constructor(){
     ProxyState.on('wildpokemons', _drawWildPokemons)
+    ProxyState.on('activePokemon', _drawDetails)
     this.getWildPokemons()
     _drawWildPokemons()
   }
@@ -32,6 +37,14 @@ export class WildPokemonsController {
     }
   }
 
+  async getPokemonDetails(name){
+    try {
+      await wildPokemonsService.getPokemonDetails(name)
+    } catch (error) {
+      console.error(error)
+      Pop.toast(error.message, 'error')
+    }
+  }
 }
 
 

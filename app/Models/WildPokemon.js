@@ -18,8 +18,15 @@ export class WildPokemon {
   static ListTemplate(wildPokemon){
     return `
     <div class="col-12 text-center p-1">
-    <b class="selectable" onclick="app.dndSpellsController.getPokemonDetails('${wildPokemon.id}')"> ${wildPokemon.name} </b>
+    <b class="selectable" onclick="app.wildPokemonsController.getPokemonDetails('${wildPokemon.name}')"> ${wildPokemon.name} </b>
     </div>
+    `
+  }
+
+  get DetailsTemplate(){
+    return `
+    ${this.name}
+    ${this.weight}
     `
   }
 }
